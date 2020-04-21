@@ -4,5 +4,8 @@ A simple Truth or Dare game. Get your position around your phone and get started
 ## **Icon**
 ![icon](src/icon.png)
 
+## **Video**
+![](src/video.gif)
+
 ## **Apk**
 [app-debug.apk](src/app-debug.apk?raw=true)
