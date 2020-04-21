@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Truth or Dare</string>
+    <string name="spin">SPIN BOTTLE</string>
+    <string name="truth">Truth</string>
+    <string name="dare">Dare</string>
+    <string name="action_add">Add</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="get_pos">Get your position and</string>
+    <string name="add_truth">Add Truth</string>
+    <string name="add_dare">Add Dare</string>
+</resources>
