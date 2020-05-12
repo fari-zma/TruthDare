@@ -57,10 +57,9 @@ public class TruthActivity extends AppCompatActivity {
     }
 
     public void populateDefaultData() {
-        String jsonTruths = sharedPreferences.getString("DefaultTruths", null);
-        String[] truths = gson.fromJson(jsonTruths, String[].class);
-        for(int i=0; i<truths.length; i++)
-            truthList.add(new TruthItem(truths[i]));
+        Values values = new Values();
+        for(int i=0; i<values.truths.length; i++)
+            truthList.add(new TruthItem(values.truths[i]));
     }
 
     public void populateUserData(String jsonTruths) {

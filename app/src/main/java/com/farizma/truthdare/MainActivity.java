@@ -24,22 +24,16 @@ public class MainActivity extends AppCompatActivity {
     private Random random = new Random();
     private int lastDirection;
     private MediaPlayer mp;
-    public Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        mp = MediaPlayer.create(this, R.raw.audio);
 
         btn = findViewById(R.id.button);
         truthBtn = findViewById(R.id.btn1);
         dareBtn = findViewById(R.id.btn2);
         imgView = findViewById(R.id.imageView);
-
-        storeDefaultDate();
 
         truthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +70,16 @@ public class MainActivity extends AppCompatActivity {
         rotate.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                mp = MediaPlayer.create(MainActivity.this, R.raw.audio);
                 mp.start();
                 btn.setEnabled(false);
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                mp.pause();
+                mp.stop();
+                mp.release();
+                mp = null;
                 truthBtn.setEnabled(true);
                 dareBtn.setEnabled(true);
             }
@@ -95,12 +92,4 @@ public class MainActivity extends AppCompatActivity {
         imgView.startAnimation(rotate);
     }
 
-    public void storeDefaultDate() {
-        Values values = new Values();
-        SharedPreferences sharedPreferences = getSharedPreferences("mySharedPreference", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("DefaultTruths", gson.toJson(values.truths));
-        editor.putString("DefaultDares", gson.toJson(values.dares));
-        editor.apply();
-    }
 }

@@ -57,10 +57,9 @@ public class DareActivity extends AppCompatActivity {
     }
 
     public void populateDefaultData() {
-        String jsonDares = sharedPreferences.getString("DefaultDares", null);
-        String[] dares = gson.fromJson(jsonDares, String[].class);
-        for(int i=0; i<dares.length; i++)
-            truthList.add(new TruthItem(dares[i]));
+        Values values = new Values();
+        for(int i=0; i<values.dares.length; i++)
+            truthList.add(new TruthItem(values.dares[i]));
     }
 
     public void populateUserData(String jsonDares) {
