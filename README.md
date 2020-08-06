@@ -9,3 +9,6 @@ A simple Truth or Dare game. Get your position around your phone and get started
 
 ## **Apk**
 [app-debug.apk](src/app-debug.apk?raw=true)
+
+## **License**
+Licensed under the [MIT License](LICENSE)
